@@ -27,7 +27,6 @@ import org.wso2.carbon.identity.oauth.common.exception.InvalidOAuthClientExcepti
 import org.wso2.carbon.identity.oauth.dao.OAuthAppDAO;
 import org.wso2.carbon.identity.oauth.dao.OAuthAppDO;
 import org.wso2.carbon.identity.oauth2.IdentityOAuth2Exception;
-import org.wso2.carbon.identity.oauth2.dao.TokenMgtDAO;
 import org.wso2.carbon.identity.oauth2.model.AccessTokenDO;
 import org.wso2.carbon.identity.oauth2.util.OAuth2Util;
 
@@ -71,12 +70,6 @@ public class OAuthDataPublisherUtils {
         OAuthAppDAO oAuthAppDAO = new OAuthAppDAO();
         OAuthAppDO oAuthAppDO = oAuthAppDAO.getAppInformation(consumerID);
         return oAuthAppDO;
-    }
-
-    public static AccessTokenDO getTokenData(String token) throws IdentityOAuth2Exception,
-            InvalidOAuthClientException {
-        TokenMgtDAO tokenMgtDAO = new TokenMgtDAO();
-        return tokenMgtDAO.retrieveAccessToken(token, true);
     }
 
 }
